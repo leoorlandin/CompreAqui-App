@@ -1,5 +1,4 @@
 const connection = require('../database/connection');
-const crypto = require('crypto');
 
 module.exports = {
   async index(request, response) {
@@ -11,7 +10,6 @@ module.exports = {
     const { barcode, name, quantity, price } = request.body;
 
 
-    const id = crypto.randomBytes(4).toString('HEX');
 
     await connection('products').insert({
       barcode,
@@ -20,6 +18,9 @@ module.exports = {
       price
     });
 
-    return response.json({ id });
-  }
+    return response.json({ message: 'product created' });
+  },
+  // async delete(request, response){
+  //   return 
+  // }
 }

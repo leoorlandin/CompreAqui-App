@@ -5,6 +5,7 @@ const routes = express.Router();
 
 routes.get('/', ProductController.index);
 routes.post('/create', ProductController.create);
+// routes.delete('/', ProductController.delete);
 
 module.exports = routes;
 
