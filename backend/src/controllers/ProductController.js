@@ -9,8 +9,6 @@ module.exports = {
   async create(request, response) {
     const { barcode, name, quantity, price } = request.body;
 
-
-
     await connection('products').insert({
       barcode,
       name,
@@ -22,5 +20,13 @@ module.exports = {
   },
   // async delete(request, response){
   //   return 
-  // }
+  // },
+  async find(request, response) {
+
+    const { id } = req.params;
+
+    const products = await connection('products').select('*').where('id', id);
+
+    return response.json(products)
+  }
 }
