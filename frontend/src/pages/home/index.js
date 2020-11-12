@@ -9,11 +9,11 @@ const Home = () => {
 
   const [products, setProducts] = useState([]);
 
-  useEffect(() => api.get('')
-    .then(response => {
-      console.log(response)
-      setProducts(response.data);
-    })
+  useEffect(() =>
+    api.get('')
+      .then(response => {
+        setProducts(response.data);
+      })
     , []);
 
   return (

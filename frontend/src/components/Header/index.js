@@ -14,7 +14,7 @@ const Header = () => {
 
 
       <S.HeaderLinks>
-        <Link to="/create">Novo produto</Link>
+        <Link to="/product/create">Novo produto</Link>
       </S.HeaderLinks>
 
     </S.Header>

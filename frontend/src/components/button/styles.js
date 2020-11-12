@@ -10,6 +10,11 @@ export const Button = styled.button`
     border-radius: 12px;
     background: #2f195f;
     transition: all 200ms ease-in-out;
+    border: none;
+
+    &:hover{
+      opacity: 0.9;
+    }
 `
 
 
