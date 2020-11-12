@@ -23,7 +23,7 @@ const Create = () => {
     };
 
     try {
-      const response = await api.post('create', data);
+      const response = await api.post('product/create', data);
 
       alert(`${response.data} foi criado`);
 

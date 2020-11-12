@@ -18,15 +18,33 @@ module.exports = {
 
     return response.json({ message: 'product created' });
   },
-  // async delete(request, response){
-  //   return 
-  // },
+  async delete(request, response) {
+    const { id } = request.params;
+
+    const product = await connection('products')
+      .where('id', id)
+      .select('id')
+      .first();
+
+    if (!product) {
+      return response.status(404).json({ error: 'Product not found' });
+    }
+
+    await connection('products').where('id', id).delete();
+
+    return response.status(204).send();
+
+  },
   async find(request, response) {
 
-    const { id } = req.params;
+    const { id } = request.params;
 
-    const products = await connection('products').select('*').where('id', id);
+    const product = await connection('products').select('*').first().where('id', id);
 
-    return response.json(products)
+    if (!product) {
+      return response.status(404).json({ error: 'Product not found' });
+    }
+
+    return response.json(product)
   }
 }
