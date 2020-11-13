@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -9,30 +9,17 @@ import Button from '../../components/Button';
 
 import * as S from './styles';
 
-
-
 const Product = () => {
 
-  const history = useHistory();
   const { id } = useParams();
   const [product, setProduct] = useState([]);
-
 
   useEffect(() =>
     api.get(`product/${id}`)
       .then(response => {
-        if (response.status === 404) {
-          console.log('error')
-        }
         setProduct(response.data);
-        console.log(response);
       })
     , [id])
-
-  const handleEditButton = () => {
-    history.push(`/product/${id}/edit`);
-  }
-
 
   return (
     <>

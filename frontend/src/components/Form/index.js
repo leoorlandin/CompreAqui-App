@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 
 import * as S from './styles';
 
-const Form = () => {
+const Form = ({ barcodeValue, nameValue, quantityValue, priceValue }) => {
 
   const history = useHistory();
 
@@ -45,7 +45,9 @@ const Form = () => {
         <S.FieldValue
           type="number"
           value={barcode}
-          onChange={e => setBarcode(e.target.value)}>
+          onChange={e => setBarcode(e.target.value)}
+        >
+          {/* {barcodeValue} */}
         </S.FieldValue>
       </S.FormField>
 
@@ -54,7 +56,9 @@ const Form = () => {
         <S.FieldValue
           type="text"
           value={name}
-          onChange={e => setName(e.target.value)}>
+          onChange={e => setName(e.target.value)}
+        >
+          {/* {nameValue} */}
         </S.FieldValue>
       </S.FormField>
 
@@ -63,7 +67,9 @@ const Form = () => {
         <S.FieldValue
           type="number"
           value={quantity}
-          onChange={e => setQuantity(e.target.value)}>
+          onChange={e => setQuantity(e.target.value)}
+        >
+          {/* {quantityValue} */}
         </S.FieldValue>
       </S.FormField>
 
@@ -72,11 +78,13 @@ const Form = () => {
         <S.FieldValue
           type="number"
           value={price}
-          onChange={e => setPrice(e.target.value)}>
+          onChange={e => setPrice(e.target.value)}
+        >
+          {/* {priceValue} */}
         </S.FieldValue>
       </S.FormField>
 
-      <Button textContent="Salvar" type="submit"/>
+      <Button textContent="Salvar" type="submit" />
     </S.Form>
   );
 };

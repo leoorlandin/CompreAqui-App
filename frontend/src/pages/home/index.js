@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as S from './styles';
 
 import Header from '../../components/Header';
+import MainCard from '../../components/MainCard';
+import Button from '../../components/Button';
+
 import api from '../../services/api';
 
 const Home = () => {
@@ -19,27 +23,35 @@ const Home = () => {
   return (
     <>
       <Header />
-      <S.Container>
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Quantidade</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              products.map(product => (
-                <tr key={product.id}>
-                  <td>{product.name}</td>
-                  <td>{product.quantity}</td>
-                  <td style={{ color: 'red', }}>ver</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </S.Container>
+      <MainCard>
+        <S.CardContent>          
+          <S.StyledUl>
+            Nome
+            {products.map(product => (
+            <S.StyledLi>{product.name}</S.StyledLi>
+          ))}
+          </S.StyledUl>
+
+          <S.StyledUl>
+            Quantidade
+            {products.map(product => (
+            <S.StyledLi>{product.quantity}</S.StyledLi>
+          ))}
+          </S.StyledUl>
+
+          <S.StyledUl>
+            <br />
+            <S.StyledLi>
+              {products.map(product => (
+                <Link to={`/product/${product.id}`}>
+                  <Button textContent="Ver" />
+                </Link>
+              ))}
+
+            </S.StyledLi>
+          </S.StyledUl>
+        </S.CardContent>
+      </MainCard>
     </>
   )
 };

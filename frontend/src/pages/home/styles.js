@@ -1,24 +1,31 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
-  background: #fff;
-  padding: 32px;
-  margin: 32px;
+export const CardContent = styled.section`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  justify-content: space-around;
 
-  & table {
-    border-spacing: 0;
+   button {
+    max-width: 80%;
+    /* margin: 8px 0; */
+    padding: 6px 0;
+    font-size: 14px;
   }
+`;
 
-  & table thead tr th{
-    font-size: 32px;
-    text-align: center;
-  }
+export const StyledUl = styled.ul`
+  list-style-type: none;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 300px;
 
-  td, th {
-    padding: 16px;
-    border-bottom: 1px solid #d9d9d9; 
+  & :last-child{
+    border: none;
   }
-`
+`;
+
+export const StyledLi = styled.li`
+  font-size: 16px;
+`;
