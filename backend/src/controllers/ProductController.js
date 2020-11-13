@@ -1,3 +1,4 @@
+const { update } = require('../database/connection');
 const connection = require('../database/connection');
 
 module.exports = {
@@ -46,5 +47,18 @@ module.exports = {
     }
 
     return response.json(product)
+  },
+  async put(request, response) {
+    const { id } = request.params;
+    const { barcode, name, quantity, price } = request.body;
+
+    await connection('products').where('id', id).update({
+      barcode: barcode,
+      name: name,
+      quantity: quantity,
+      price: price
+    })
+
+    return response.json({ message: 'product updated' })
   }
 }
