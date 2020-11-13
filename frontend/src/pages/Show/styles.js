@@ -5,9 +5,6 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
 
-
-  h1 {
-  }
 `;
 
 export const ProductField = styled.div`

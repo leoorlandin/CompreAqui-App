@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -13,20 +13,10 @@ import * as S from './styles';
 
 const Product = () => {
 
+  const history = useHistory();
   const { id } = useParams();
   const [product, setProduct] = useState([]);
 
-
-  // const handleRequest = async () => {
-  //   api.get(`product/${id}`)
-  //     .then(response => {
-  //       if(response.status === 404){
-
-  //       }
-  //       setProduct(response.data);
-  //       console.log(response.data);
-  //     })
-  // };
 
   useEffect(() =>
     api.get(`product/${id}`)
@@ -38,6 +28,10 @@ const Product = () => {
         console.log(response);
       })
     , [id])
+
+  const handleEditButton = () => {
+    history.push(`/product/${id}/edit`);
+  }
 
 
   return (
@@ -68,8 +62,11 @@ const Product = () => {
           </S.ProductField>
 
         </S.CardContent>
-        
-        <Button textContent="Editar Produto" />
+
+        <Link to={`/product/${id}/edit`}>
+          <Button textContent="Editar Produto" />
+        </Link>
+
       </MainCard>
     </>
   );

@@ -18,6 +18,10 @@ export const CardSection = styled.section`
     font-size: 32px;
     font-family: 'Nunito';
   }
+
+  button {
+    width: 100%;
+  }
 `;
 
 
