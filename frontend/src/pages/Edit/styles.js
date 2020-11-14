@@ -7,3 +7,9 @@ export const Edit = styled.div`
    background: #E50914;
  }
 `
+
+export const Form = styled.form`
+  button {
+    width: 100%;
+  }
+`;

@@ -23,7 +23,7 @@ const Create = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    const data = {
+    const request = {
       barcode,
       name,
       quantity,
@@ -31,7 +31,7 @@ const Create = () => {
     };
 
     try {
-      const response = await api.post('product/create', data);
+      const response = await api.post('product/create', request);
 
       alert('Produto criado');
 
