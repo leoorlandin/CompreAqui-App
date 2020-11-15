@@ -4,11 +4,13 @@ const api = axios.create({
   baseURL: 'http://localhost:3333'
 });
 
+export const listProducts = () => api.get('/');
+
 export const createProduct = (requestBody) => api.post('product/create', requestBody);
 
 export const getProduct = (id) => api.get(`product/${id}`);
 
-export const listProducts = () => api.get('/');
+export const updateProduct = (id, requestBody) => api.put(`product/${id}/edit`, requestBody);
 
 export const deleteProduct = (id) => api.delete(`product/${id}/edit`);
 

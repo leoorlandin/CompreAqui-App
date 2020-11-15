@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { listProducts } from '../../services/api';
 
 import * as S from './styles';
 
 import Header from '../../components/Header';
 import MainCard from '../../components/MainCard';
 
-import api from '../../services/api';
 
 const Home = () => {
 
   const [products, setProducts] = useState([]);
 
-  useEffect(() =>
-    api.get('')
-      .then(response => {
-        setProducts(response.data);
-      })
-    , []);
+  useEffect(() => {
+    const getListOfProducts = async () => {
+      const response = await listProducts();
+      setProducts(response.data)
+    }
+    getListOfProducts();
+  }, []);
 
   return (
     <>

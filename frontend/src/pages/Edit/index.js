@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import api, { getProduct, deleteProduct } from '../../services/api';
+import { getProduct, updateProduct, deleteProduct } from '../../services/api';
 import * as S from './styles';
 
 import Header from '../../components/Header';
@@ -30,7 +30,7 @@ const Edit = () => {
     }
 
       try {
-        await api.put(`/product/${id}/edit`, request);
+        await updateProduct(id, request);
         alert('registro atualizado com sucesso');
         history.push('/');
       } catch {
