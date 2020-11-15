@@ -1,12 +1,6 @@
 <h1 align="center">:office: CompreAqui-App :sunny:</h1>
 
 <div align="center">
-  <p align="center">
-    <img alt="Repository languages count" src="https://img.shields.io/github/languages/top/leoorlandin/CompreAqui-App?color=%#7BE0D9">
-    <img alt="Repository top language" src="https://img.shields.io/github/languages/count/leoorlandin/CompreAqui-App?color=%#7BE0D9">
-    <img alt="Repository size" src="https://img.shields.io/github/repo-size/leoorlandin/CompreAqui-App?color=%#7BE0D9">
-    <img alt="Repository last commit" src="https://img.shields.io/github/last-commit/leoorlandin/CompreAqui-App?color=%#7BE0D9" />
-  </p>
   <h3>CompreAqui-App</h3>
   <p align="center">
     <a href="#sobre-information_source">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
