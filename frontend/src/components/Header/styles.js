@@ -12,11 +12,16 @@ export const Header = styled.div`
 
 
   & a {
-    font-weight: 400;
+    display: flex;
+    align-items: center;
     color: #fff;
     text-decoration: none;
     font-size: 28px;
     box-sizing: border-box;
+
+    & svg {
+      margin-right: 5px;
+    }
   }
 
   input {
@@ -28,24 +33,13 @@ export const Header = styled.div`
     color: #0f1020;
   }
 
-`;
+  a button {
+    display: flex;
+    align-items: center;
 
-
-export const HeaderLinks = styled.div`
-
-
-  & a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 16px;
-    border-radius: 12px;
-    background: #2f195f;
-    transition: all 200ms ease-in-out;
+    & svg{
+      margin-left: 5px;
+    }
   }
 
-  a:hover {
-    opacity: 0.9;
-  }
 `;

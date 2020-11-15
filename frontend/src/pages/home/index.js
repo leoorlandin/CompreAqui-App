@@ -24,18 +24,18 @@ const Home = () => {
     <>
       <Header />
       <MainCard>
-        <S.CardContent>          
+        <S.CardContent>
           <S.StyledUl>
             Nome
             {products.map(product => (
-            <S.StyledLi>{product.name}</S.StyledLi>
+            <S.StyledLi key={product.id}>{product.name}</S.StyledLi>
           ))}
           </S.StyledUl>
 
           <S.StyledUl>
             Quantidade
             {products.map(product => (
-            <S.StyledLi>{product.quantity}</S.StyledLi>
+            <S.StyledLi key={product.id}>{product.quantity}</S.StyledLi>
           ))}
           </S.StyledUl>
 
@@ -43,7 +43,7 @@ const Home = () => {
             <br />
             <S.StyledLi>
               {products.map(product => (
-                <Link to={`/product/${product.id}`}>
+                <Link to={`/product/${product.id}`} key={product.id}>
                   <Button textContent="Ver" />
                 </Link>
               ))}

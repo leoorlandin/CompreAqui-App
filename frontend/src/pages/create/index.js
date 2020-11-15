@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../../services/api';
+import { createProduct } from '../../services/api';
 
 
 import Header from '../../components/Header';
@@ -31,13 +31,11 @@ const Create = () => {
     };
 
     try {
-      const response = await api.post('product/create', request);
-
+      await createProduct(request);
       alert('Produto criado');
-
       history.push('/');
     } catch (err) {
-      alert('erro no cadastro, tente novamente')
+      alert('Erro no cadastro, tente novamente')
     }
 
   };
