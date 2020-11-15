@@ -14,14 +14,6 @@ const Home = () => {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState('');
 
-  // useEffect(() => {
-  //   const getListOfProducts = async () => {
-  //     const response = await listProducts();
-  //     setProducts(response.data)
-  //   }
-  //   getListOfProducts();
-  // }, [filter]);
-
   useEffect(() => {
     const getListOfProducts = async () => {
       const response = await getProducts(filter);
