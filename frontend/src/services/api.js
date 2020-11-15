@@ -6,8 +6,7 @@ const api = axios.create({
 
 export const createProduct = (requestBody) => api.post('product/create', requestBody);
 
-
-export const getProduct = (id) => api.get('product/:id', id);
+export const getProduct = (id) => api.get(`product/${id}`);
 
 export const listProducts = () => api.get('/');
 

@@ -18,29 +18,17 @@ const Edit = () => {
 
   useEffect(() => {
     const getResponse = async () => {
-      const response = await getProduct(`product/${id}`)
-      return setProduct(response.data);
+      const response = await getProduct(id)
+      setProduct(response.data);
     }
+    getResponse();
   }, [id]);
-
-
-  const [barcode, setBarcode] = useState(product.barcode);
-  const [name, setName] = useState(product.name);
-  const [quantity, setQuantity] = useState(product.quantity);
-  const [price, setPrice] = useState(product.price);
-
-
-  console.log({ barcode })
-
 
   const handleSaveButton = async (e) => {
     e.preventDefault();
 
     const request = {
-      barcode,
-      name,
-      quantity,
-      price
+      ...product
     }
 
     try {
@@ -71,29 +59,41 @@ const Edit = () => {
           <Input
             label="Código de barras:"
             type="number"
-            value={barcode}
-            onChange={e => setBarcode(e.target.value)}
+            value={product.barcode}
+            onChange={e => setProduct({
+              ...product,
+              barcode: e.target.value
+            })}
           />
 
           <Input
             label="Nome do produto:"
             type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
+            value={product.name}
+            onChange={e => setProduct({
+              ...product,
+              name: e.target.value
+            })}
           />
 
           <Input
             label="Quantidade em estoque:"
             type="number"
-            value={quantity}
-            onChange={e => setQuantity(e.target.value)}
+            value={product.quantity}
+            onChange={e => setProduct({
+              ...product,
+              quantity: e.target.value
+            })}
           />
 
           <Input
             label="Preço:"
             type="number"
-            value={price}
-            onChange={e => setPrice(e.target.value)}
+            value={product.price}
+            onChange={e => setProduct({
+              ...product,
+              price: e.target.value
+            })}
           />
 
           <Button textContent="Salvar" type="submit" />
