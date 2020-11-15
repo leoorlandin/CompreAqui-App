@@ -10,6 +10,7 @@ const Input = ({ label, onChange, value, ...rest }) => {
       <S.Input
         value={value}
         onChange={onChange}
+        required
         {...rest}
       />
     </S.InputWrapper>

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import api, { getProduct } from '../../services/api';
+import api, { getProduct, deleteProduct } from '../../services/api';
 import * as S from './styles';
-
-import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
 import MainCard from '../../components/MainCard';
@@ -31,23 +29,25 @@ const Edit = () => {
       ...product
     }
 
-    try {
-      await api.put(`/product/${id}/edit`, request);
-      alert('registro atualizado com sucesso');
-      history.push('/');
-    } catch {
-      alert('internal error')
-    }
+      try {
+        await api.put(`/product/${id}/edit`, request);
+        alert('registro atualizado com sucesso');
+        history.push('/');
+      } catch {
+        alert('Erro interno! Por favor tente novamente');
+      }
+    
   };
 
-  const handleDeleteButton = async () => {
+  const handleDeleteButton = async (e) => {
+    e.preventDefault();
 
     try {
-      await api.delete(`/product/${id}/edit`)
-      alert('produto excluído com sucesso')
+      await deleteProduct(id);
+      alert('Produto excluído com sucesso');
       history.push('/');
     } catch {
-      alert(`Erro interno! Tente novamente`)
+      alert(`Erro interno! Tente novamente`);
     }
   };
 
@@ -107,13 +107,5 @@ const Edit = () => {
     </S.Edit>
   );
 };
-
-Edit.propTypes = {
-  barcodeValue: PropTypes.string,
-  nameValue: PropTypes.string,
-  quantityValue: PropTypes.number,
-  priceValue: PropTypes.number,
-};
-
 
 export default Edit;

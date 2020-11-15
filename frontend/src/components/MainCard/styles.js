@@ -17,6 +17,7 @@ export const CardSection = styled.section`
   h1 {
     font-size: 32px;
     font-family: 'Nunito';
+    text-align: center;
   }
 
   button {

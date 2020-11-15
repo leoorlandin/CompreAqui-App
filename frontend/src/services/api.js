@@ -10,5 +10,7 @@ export const getProduct = (id) => api.get(`product/${id}`);
 
 export const listProducts = () => api.get('/');
 
+export const deleteProduct = (id) => api.delete(`product/${id}/edit`);
+
 
 export default api;

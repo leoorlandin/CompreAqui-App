@@ -2,30 +2,32 @@ import styled from 'styled-components';
 
 export const CardContent = styled.section`
   display: flex;
-  text-align: center;
+  align-items: center;
   justify-content: space-around;
+  width: 100%;
+  padding: 16px 0;
+  font-size: 16px;
 
-   button {
-    max-width: 80%;
-    /* margin: 8px 0; */
-    padding: 6px 0;
-    font-size: 14px;
+  h2 {
+    font-size: 24px;
   }
+
 `;
 
-export const StyledUl = styled.ul`
-  list-style-type: none;
-  font-size: 32px;
+export const TableColumn = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  min-height: 300px;
-
-  & :last-child{
-    border: none;
-  }
+  align-items: center;
 `;
 
-export const StyledLi = styled.li`
-  font-size: 16px;
+export const TableRow = styled.div`
+  display: flex;
+  padding: 25px 0;
+
+  & a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #7353ba;
+  }
+
 `;
