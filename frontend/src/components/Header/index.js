@@ -15,11 +15,6 @@ const Header = () => {
         Inventory control
         </Link>
 
-      <input type="text"
-        name="search"
-        placeholder="Pesquisar produtos"
-      />
-
       <Link to="/product/create">
         <Button textContent="Novo produto"
           buttonAsset={<FiPlus />}

@@ -24,14 +24,6 @@ export const Header = styled.div`
     }
   }
 
-  input {
-    width: 320px;
-    padding: 16px;
-    border-radius: 26px;
-    border: none;
-    font-family: 'nunito';
-    color: #0f1020;
-  }
 
   a button {
     display: flex;

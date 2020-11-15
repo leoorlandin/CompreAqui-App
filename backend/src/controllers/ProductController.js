@@ -1,11 +1,15 @@
-const { update } = require('../database/connection');
 const connection = require('../database/connection');
 
 module.exports = {
   async index(request, response) {
-    const products = await connection('products').select('*');
+    let { filter } = request.query;
+    let totalQuery = await connection('products').select('*');
 
-    return response.json(products)
+    if (filter) {
+      totalQuery = await connection('products').select('*').where('name', 'like', `${filter}%`);
+    }
+
+    return response.json(totalQuery)
   },
   async create(request, response) {
     const { barcode, name, quantity, price } = request.body;
@@ -19,24 +23,7 @@ module.exports = {
 
     return response.json({ message: 'product created' });
   },
-  async delete(request, response) {
-    const { id } = request.params;
-
-    const product = await connection('products')
-      .where('id', id)
-      .select('id')
-      .first();
-
-    if (!product) {
-      return response.status(404).json({ error: 'Product not found' });
-    }
-
-    await connection('products').where('id', id).delete();
-
-    return response.status(204).send();
-
-  },
-  async find(request, response) {
+  async show(request, response) {
 
     const { id } = request.params;
 
@@ -60,5 +47,22 @@ module.exports = {
     })
 
     return response.json({ message: 'product updated' })
-  }
+  },
+  async delete(request, response) {
+    const { id } = request.params;
+
+    const product = await connection('products')
+      .where('id', id)
+      .select('id')
+      .first();
+
+    if (!product) {
+      return response.status(404).json({ error: 'Product not found' });
+    }
+
+    await connection('products').where('id', id).delete();
+
+    return response.status(204).send();
+
+  },
 }

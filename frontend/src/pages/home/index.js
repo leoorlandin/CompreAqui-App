@@ -1,28 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { listProducts } from '../../services/api';
+import { listProducts, getProducts } from '../../services/api';
+import { FiHome, FiPlus } from 'react-icons/fi';
 
 import * as S from './styles';
 
-import Header from '../../components/Header';
 import MainCard from '../../components/MainCard';
+import Button from '../../components/Button';
 
 
 const Home = () => {
 
   const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState('');
+
+  // useEffect(() => {
+  //   const getListOfProducts = async () => {
+  //     const response = await listProducts();
+  //     setProducts(response.data)
+  //   }
+  //   getListOfProducts();
+  // }, [filter]);
 
   useEffect(() => {
     const getListOfProducts = async () => {
-      const response = await listProducts();
+      const response = await getProducts(filter);
       setProducts(response.data)
     }
     getListOfProducts();
-  }, []);
+  }, [filter]);
 
   return (
     <>
-      <Header />
+      <S.MainHeader>
+        <Link to="/">
+          <FiHome size={30} />
+        Inventory control
+        </Link>
+
+        <S.FilterForm>
+          <input type="text"
+            name="filter"
+            placeholder="Pesquisar produtos"
+            value={filter}
+            onChange={e => setFilter(e.target.value)}
+          />
+        </S.FilterForm>
+
+        <Link to="/product/create">
+          <Button
+            textContent="Novo produto"
+            buttonAsset={<FiPlus />}
+          />
+        </Link>
+      </S.MainHeader>
+
       <MainCard sectionTitle="Produtos em estoque">
         <S.CardContent>
           <S.TableColumn>
