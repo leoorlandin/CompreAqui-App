@@ -30,9 +30,8 @@ const Home = () => {
         Inventory control
         </Link>
 
-        <S.FilterForm>
+        <S.FilterForm onSubmit={e => e.preventDefault()}>
           <input type="text"
-            name="filter"
             placeholder="Pesquisar produtos"
             value={filter}
             onChange={e => setFilter(e.target.value)}
