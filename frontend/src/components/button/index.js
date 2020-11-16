@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 import * as S from './styles';
 
 const Button = ({ textContent, height, width, buttonAsset }) => {

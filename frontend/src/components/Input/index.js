@@ -18,8 +18,8 @@ const Input = ({ label, onChange, value, ...rest }) => {
 };
 
 Input.propTypes = {
-  label: PropTypes.string, 
-  onChange: PropTypes.func, 
+  label: PropTypes.string,
+  onChange: PropTypes.func,
   value: PropTypes.any,
 }
 

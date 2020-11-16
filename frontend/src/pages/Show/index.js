@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-
-import api from '../../services/api';
+import { getProduct } from '../../services/api';
 
 import Header from '../../components/Header';
 import MainCard from '../../components/MainCard';
@@ -14,12 +13,13 @@ const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
 
-  useEffect(() =>
-    api.get(`product/${id}`)
-      .then(response => {
-        setProduct(response.data);
-      })
-    , [id])
+  useEffect(() => {
+    const getProductInfo = async () => {
+      const response = await getProduct(id);
+      setProduct(response.data)
+    }
+    getProductInfo();
+  }, [id])
 
   return (
     <>

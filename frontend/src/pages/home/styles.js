@@ -23,8 +23,6 @@ export const MainHeader = styled.header`
     }
   }
 
-  
-
   a button {
     display: flex;
     align-items: center;
@@ -57,7 +55,6 @@ export const CardContent = styled.section`
   h2 {
     font-size: 24px;
   }
-
 `;
 
 export const TableColumn = styled.div`
@@ -75,5 +72,4 @@ export const TableRow = styled.div`
     font-weight: bold;
     color: #7353ba;
   }
-
 `;

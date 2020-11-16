@@ -10,7 +10,6 @@ export const Header = styled.div`
   color: #fff;
   font-family: 'nunito';
 
-
   & a {
     display: flex;
     align-items: center;
@@ -24,7 +23,6 @@ export const Header = styled.div`
     }
   }
 
-
   a button {
     display: flex;
     align-items: center;
@@ -33,5 +31,4 @@ export const Header = styled.div`
       margin-left: 5px;
     }
   }
-
 `;
