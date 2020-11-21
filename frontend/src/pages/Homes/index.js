@@ -8,7 +8,6 @@ import * as S from './styles';
 import MainCard from '../../components/MainCard';
 import Button from '../../components/Button';
 
-
 const Home = () => {
 
   const [products, setProducts] = useState([]);
